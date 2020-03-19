@@ -13,7 +13,16 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [],
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "demojson//example_2.json"
+					},
+					{
+						"name": "Destination",
+						"value": "demojson//"
+					}
+				],
 				"typeProperties": {
 					"source": {
 						"type": "JsonSource",
@@ -93,7 +102,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "Target2",
+						"referenceName": "DelimitedText1",
 						"type": "DatasetReference"
 					}
 				]
