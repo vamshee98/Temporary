@@ -1,0 +1,104 @@
+{
+	"name": "Demo 2",
+	"properties": {
+		"activities": [
+			{
+				"name": "Target 2",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['AID']"
+								},
+								"sink": {
+									"name": "AID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Timestamp']"
+								},
+								"sink": {
+									"name": "Timestamp",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Data']['Val']"
+								},
+								"sink": {
+									"name": "Val",
+									"type": "Int16"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Data']['PrevVal']"
+								},
+								"sink": {
+									"name": "PrevVal",
+									"type": "Int16"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Data']['Descr']"
+								},
+								"sink": {
+									"name": "Descr",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Demo2",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Target2",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
