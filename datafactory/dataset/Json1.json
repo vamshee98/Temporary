@@ -1,0 +1,89 @@
+{
+	"name": "Json1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "example_2.json",
+				"fileSystem": "demojson"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"quiz": {
+					"type": "object",
+					"properties": {
+						"sport": {
+							"type": "object",
+							"properties": {
+								"q1": {
+									"type": "object",
+									"properties": {
+										"question": {
+											"type": "string"
+										},
+										"options": {
+											"type": "array",
+											"items": {
+												"type": "string"
+											}
+										},
+										"answer": {
+											"type": "string"
+										}
+									}
+								}
+							}
+						},
+						"maths": {
+							"type": "object",
+							"properties": {
+								"q1": {
+									"type": "object",
+									"properties": {
+										"question": {
+											"type": "string"
+										},
+										"options": {
+											"type": "array",
+											"items": {
+												"type": "string"
+											}
+										},
+										"answer": {
+											"type": "string"
+										}
+									}
+								},
+								"q2": {
+									"type": "object",
+									"properties": {
+										"question": {
+											"type": "string"
+										},
+										"options": {
+											"type": "array",
+											"items": {
+												"type": "string"
+											}
+										},
+										"answer": {
+											"type": "string"
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
